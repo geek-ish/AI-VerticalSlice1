@@ -12,3 +12,17 @@ C:\Users\tirus.brown\whiteboard\20260104-Vertical Slice Daily1\src\CsvUpdateDemo
 C:\Users\tirus.brown\whiteboard\20260104-Vertical Slice Daily1\src\CsvUpdateDemo\CsvUpdateDemo\obj\Debug\CsvUpdateDemo.csproj.CopyComplete
 C:\Users\tirus.brown\whiteboard\20260104-Vertical Slice Daily1\src\CsvUpdateDemo\CsvUpdateDemo\obj\Debug\CsvUpdateDemo.exe
 C:\Users\tirus.brown\whiteboard\20260104-Vertical Slice Daily1\src\CsvUpdateDemo\CsvUpdateDemo\obj\Debug\CsvUpdateDemo.pdb
+C:\Users\tirus.brown\source\repos\AI-VerticalSlice1\CsvUpdateDemo\bin\Debug\CsvUpdateDemo.exe.config
+C:\Users\tirus.brown\source\repos\AI-VerticalSlice1\CsvUpdateDemo\bin\Debug\CsvUpdateDemo.exe
+C:\Users\tirus.brown\source\repos\AI-VerticalSlice1\CsvUpdateDemo\bin\Debug\CsvUpdateDemo.pdb
+C:\Users\tirus.brown\source\repos\AI-VerticalSlice1\CsvUpdateDemo\bin\Debug\EntityFramework.dll
+C:\Users\tirus.brown\source\repos\AI-VerticalSlice1\CsvUpdateDemo\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\tirus.brown\source\repos\AI-VerticalSlice1\CsvUpdateDemo\bin\Debug\SimpleInjector.dll
+C:\Users\tirus.brown\source\repos\AI-VerticalSlice1\CsvUpdateDemo\bin\Debug\EntityFramework.xml
+C:\Users\tirus.brown\source\repos\AI-VerticalSlice1\CsvUpdateDemo\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\tirus.brown\source\repos\AI-VerticalSlice1\CsvUpdateDemo\bin\Debug\SimpleInjector.xml
+C:\Users\tirus.brown\source\repos\AI-VerticalSlice1\CsvUpdateDemo\obj\Debug\CsvUpdateDemo.csprojAssemblyReference.cache
+C:\Users\tirus.brown\source\repos\AI-VerticalSlice1\CsvUpdateDemo\obj\Debug\CsvUpdateDemo.csproj.CoreCompileInputs.cache
+C:\Users\tirus.brown\source\repos\AI-VerticalSlice1\CsvUpdateDemo\obj\Debug\CsvUpdateDemo.csproj.CopyComplete
+C:\Users\tirus.brown\source\repos\AI-VerticalSlice1\CsvUpdateDemo\obj\Debug\CsvUpdateDemo.exe
+C:\Users\tirus.brown\source\repos\AI-VerticalSlice1\CsvUpdateDemo\obj\Debug\CsvUpdateDemo.pdb

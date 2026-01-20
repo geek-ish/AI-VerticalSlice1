@@ -1,44 +1,49 @@
 using System;
-using CsvUpdateDemo.Infrastructure.Database;
+using System.Linq;
 using CsvUpdateDemo.Infrastructure.IoC;
 using SimpleInjector.Lifestyles;
 
 namespace CsvUpdateDemo
 {
-    internal static class Program
+    internal class Program
     {
-        private static void Main(string[] args)
+        private static int Main(string[] args)
         {
-            Console.WriteLine("CsvUpdateDemo — Milestone 1 startup");
-            Console.WriteLine("----------------------------------");
+            // Run smoke tests on startup (no DB required).
+            RunSmokeTests();
 
+            // Existing DI bootstrap
             var container = DependencyConfig.BuildContainer();
-
-            // Verify DI setup
-            container.Verify();
-            Console.WriteLine("[OK] DI container verification passed.");
-
-            // Create a scope, resolve DbContext, and create DB + schema if needed
             using (AsyncScopedLifestyle.BeginScope(container))
             {
-                var db = container.GetInstance<AppDbContext>();
+                container.Verify();
+                Console.WriteLine("DI container verified.");
+            }
 
-                var created = db.Database.CreateIfNotExists();
-                Console.WriteLine(created
-                    ? "[OK] Database created (CsvUpdateDemo) and schema initialized."
-                    : "[OK] Database already exists (CsvUpdateDemo).");
+            Console.WriteLine("Done.");
+            return 0;
+        }
 
-                // Force initialization of the model & connection early
-                var canConnect = db.Database.Exists();
-                Console.WriteLine(canConnect
-                    ? "[OK] SQL Server Express connectivity verified."
-                    : "[WARN] Unable to verify DB existence (check SQL Express instance).");
+        private static void RunSmokeTests()
+        {
+            Console.WriteLine("Smoke Tests");
+            Console.WriteLine("===========");
+
+            var results = CsvUpdateDemo.SmokeTests.SmokeTests.RunAll();
+            var passed = results.Count(r => r.Passed);
+            var failed = results.Count - passed;
+
+            for (var i = 0; i < results.Count; i++)
+            {
+                var r = results[i];
+                Console.WriteLine((r.Passed ? "[PASS] " : "[FAIL] ") + r.Name);
+                if (!r.Passed)
+                    Console.WriteLine("       " + r.Details);
             }
 
             Console.WriteLine();
-            Console.WriteLine("Ready for Vertical Slice feature development.");
-            Console.WriteLine("Press any key to exit...");
-            Console.ReadKey();
+            Console.WriteLine("Smoke Test Summary: " + passed + " passed, " + failed + " failed.");
+            Console.WriteLine();
         }
     }
 }

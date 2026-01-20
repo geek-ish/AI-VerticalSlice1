@@ -16,22 +16,21 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>bin\x86\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>bin\x86\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -40,7 +39,6 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="SimpleInjector, Version=5.0.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <HintPath>..\packages\SimpleInjector.5.5.0\lib\net461\SimpleInjector.dll</HintPath>
     </Reference>
@@ -49,24 +47,33 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="Microsoft.VisualBasic" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
+    <Compile Include="Common\IClock.cs" />
     <Compile Include="Features\ImportCsv\ImportCsvModels.cs" />
     <Compile Include="Features\ImportCsv\IImportCsvHandler.cs" />
     <Compile Include="Features\ImportCsv\ImportCsvHandler.cs" />
-    <Compile Include="Infrastructure\Database\AppDbContext.cs" />
+    <Compile Include="Features\ApplyUpdates\ApplyUpdatesModels.cs" />
+    <Compile Include="Features\ApplyUpdates\IApplyUpdatesHandler.cs" />
+    <Compile Include="Features\ApplyUpdates\ApplyUpdatesHandler.cs" />
+    <Compile Include="Features\GenerateUpdateReport\GenerateUpdateReportModels.cs" />
+    <Compile Include="Features\GenerateUpdateReport\IGenerateUpdateReportHandler.cs" />
+    <Compile Include="Features\GenerateUpdateReport\GenerateUpdateReportHandler.cs" />
+    <Compile Include="SmokeTests\SmokeTests.cs" />
     <Compile Include="Infrastructure\Database\Employee.cs" />
+    <Compile Include="Infrastructure\Database\Product.cs" />
+    <Compile Include="Infrastructure\Database\AppDbContext.cs" />
+    <Compile Include="Infrastructure\DataAccess\IProductRepository.cs" />
+    <Compile Include="Infrastructure\DataAccess\EfProductRepository.cs" />
     <Compile Include="Infrastructure\IoC\DependencyConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Common\.gitkeep" />
-    <None Include="Features\.gitkeep" />
     <None Include="packages.config" />
   </ItemGroup>
-  <!-- NuGet package references (packages.config) -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
